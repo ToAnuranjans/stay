@@ -1,3 +1,4 @@
+import { View } from 'react-native';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect } from 'react';
 import { useHotelDetailsQuery } from '../../hooks/useHotelsQuery';
@@ -20,7 +21,11 @@ const Details = () => {
 		}
 	}, [navigation, hotel.name]);
 
-	return <HotelDetails {...hotel} />;
+	return (
+		<View style={{ flex: 1 }}>
+			<HotelDetails {...hotel} />;
+		</View>
+	);
 };
 
 export default Details;

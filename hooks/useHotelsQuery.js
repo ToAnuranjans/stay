@@ -38,7 +38,6 @@ export function useHotelDetailsQuery(hotelId) {
         }),
         queryFn: () => fetch(`http://localhost:3000/hotels?hotelId=${hotelId}`).then(async res => {
             const data = await res.json();
-            console.log('data', data);
             const hotel = data?.[0];
             hotel.name = hotel.name + ' (from server)';
             return hotel;
