@@ -29,8 +29,20 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack initialRouteName="index" screenOptions={{
+        headerShown: true,
+        headerStyle: { backgroundColor: 'rgba(153, 36, 135, 0.5)' },
+        headerTintColor: 'white',
+        headerTitleStyle: { fontWeight: 'bold', fontSize: 24 },
+        headerTitleAlign: 'center',
+      }}>
+        {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="index" options={{
+          title: 'Stay',
+        }} />
+        <Stack.Screen name="details/[hotelId]" options={({ route }) => ({
+          title: route.params?.hotelId || 'Details', // Dynamically set title
+        })} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
