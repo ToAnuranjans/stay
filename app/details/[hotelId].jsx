@@ -22,7 +22,7 @@ const Details = () => {
 	}, [navigation, hotel.name]);
 
 	return (
-		<View style={{ flex: 1 }}>
+		<View style={{ flex: 1, backgroundColor: '#fff', gap: 10 }}>
 			<HotelDetails {...hotel} />
 		</View>
 	);
