@@ -23,7 +23,7 @@ const Details = () => {
 
 	return (
 		<View style={{ flex: 1 }}>
-			<HotelDetails {...hotel} />;
+			<HotelDetails {...hotel} />
 		</View>
 	);
 };
