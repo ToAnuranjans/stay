@@ -1,11 +1,19 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList, Text } from 'react-native';
 import HotelCard from '../components/HotelCard';
 import { useRouter } from 'expo-router';
-import { hotels } from '../data/hotels';
+import useHotelsQuery from '../hooks/useHotelsQuery';
+import CircularLoader from '../components/CircularLoader';
 
 function Home() {
+	const { data: hotels, isLoading, isError } = useHotelsQuery();
 	const router = useRouter();
+	if (isLoading) {
+		return <CircularLoader />;
+	}
+	if (isError) {
+		return <Text>Error fetching hotels</Text>;
+	}
 	return (
 		<View style={styles.container}>
 			<FlatList

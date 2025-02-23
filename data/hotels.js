@@ -1,7 +1,7 @@
 export const hotels = [
     {
         "hotelId": 48273,
-        "name": "The Grand Hotel",
+        "name": "The Grand Hotel....",
         "location": "New York, USA",
         "price": 150,
         "rating": 4.5,
