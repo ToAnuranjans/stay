@@ -4,6 +4,7 @@ import HotelCard from '../components/HotelCard';
 import { useRouter } from 'expo-router';
 import useHotelsQuery from '../hooks/useHotelsQuery';
 import CircularLoader from '../components/CircularLoader';
+import AppError from '../components/AppError';
 
 function Home() {
 	const { data: hotels, isLoading, isError } = useHotelsQuery();
@@ -12,7 +13,7 @@ function Home() {
 		return <CircularLoader />;
 	}
 	if (isError) {
-		return <Text>Error fetching hotels</Text>;
+		return <AppError onRetry={() => router.replace('/')} />;
 	}
 	return (
 		<View style={styles.container}>
